@@ -8,6 +8,22 @@ public class Livro {
         this.autor = autor; // melhor para diferenciar do construtor
         this.disponivel = true; // melhor para diferenciar do construtor
     }
+    public String getTitulo(){
+        return titulo;
+    }
+    public String getAutor(){
+        return autor;
+    }
+    public boolean isDisponivel(){
+        return disponivel;
+    }
+    public void emprestar(){
+        disponivel = false;
+    }
+    public void devolver(){
+        disponivel = true;
+    }
+
     public void mostrarInfo(){
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);
