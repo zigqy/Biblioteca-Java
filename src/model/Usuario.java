@@ -1,14 +1,17 @@
+package model;
+
 public class Usuario {
-    private String name;
+    private String nome;
     private String senha;
 
     public Usuario(String nome, String senha){
-        this.name = nome;
+        this.nome = nome;
         this.senha = senha;
     }
     public String getName(){
-        return name;
+        return nome;
     }
+
     public boolean verificarSenha(String senhaDigitada){
         return this.senha.equals(senhaDigitada);
     }

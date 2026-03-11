@@ -1,3 +1,5 @@
+package model;
+
 public class Livro {
     String titulo;
     String autor;
@@ -22,12 +24,5 @@ public class Livro {
     }
     public void devolver(){
         disponivel = true;
-    }
-
-    public void mostrarInfo(){
-        System.out.println("Título: " + titulo);
-        System.out.println("Autor: " + autor);
-        System.out.println("Disponível: " + disponivel);
-        System.out.println("--------------------");
     }
 }
