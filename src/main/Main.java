@@ -10,10 +10,24 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
 
-        menuBiblioteca(sc, biblioteca);
+        Usuario usuarioLogado = null;
+
+        System.out.println("===LOGIN====");
+
+        System.out.println("Nome: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Senha: ");
+        String senha = sc.nextLine();
+
+        usuarioLogado = new Usuario(nome,senha);
+
+        System.out.println("Login realizado!\n");
+
+        menuBiblioteca(sc, biblioteca, usuarioLogado);
 
 }
-    public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca){
+    public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca, Usuario usuarioLogado){
         int op;
 
         do{
@@ -45,8 +59,7 @@ public class Main {
                 int id = sc.nextInt();
                 sc.nextLine();
 
-                Usuario usuario = new Usuario(" Zig ", "123");
-                biblioteca.emprestarLivro(id, usuario);
+                biblioteca.emprestarLivro(id, usuarioLogado);
             }
             if(op==4){
                 System.out.println("ID: ");
