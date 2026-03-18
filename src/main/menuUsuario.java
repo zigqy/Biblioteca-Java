@@ -1,16 +1,16 @@
 package main;
+
 import java.util.Scanner;
 import model.Usuario;
-import service.usuarioService;
+import service.UsuarioService;
 
-public class menuUsuario {
-    public static Usuario iniciar(Scanner sc, usuarioService  usuarioService){
+public class MenuUsuario {
+    public static Usuario iniciar(Scanner sc, UsuarioService usuarioService) {
         int op;
-        Usuario usuariologado = null;
 
         do {
-            System.out.println("\n====SISTEMA====\n");
-            System.out.println("1 - Cadastrar usuário");
+            System.out.println("\n==== SISTEMA ====\n");
+            System.out.println("1 - Cadastrar usuario");
             System.out.println("2 - Login");
             System.out.println("0 - Sair");
             op = sc.nextInt();
@@ -20,11 +20,12 @@ public class menuUsuario {
                 System.out.println("Nome:");
                 String nome = sc.nextLine();
 
-                System.out.println("Senha");
+                System.out.println("Senha:");
                 String senha = sc.nextLine();
 
                 usuarioService.cadastrarUsuario(nome, senha);
             }
+
             if (op == 2) {
                 System.out.println("Nome:");
                 String nome = sc.nextLine();
@@ -32,18 +33,16 @@ public class menuUsuario {
                 System.out.println("Senha:");
                 String senha = sc.nextLine();
 
-                usuariologado = usuarioService.login(nome, senha);
-
-                if (usuariologado != null) {
+                Usuario usuarioLogado = usuarioService.login(nome, senha);
+                if (usuarioLogado != null) {
                     System.out.println("Login realizado!");
-                    return usuariologado;
-                } else {
-                    System.out.println("Usuario ou senha incorretos");
+                    return usuarioLogado;
                 }
+
+                System.out.println("Usuario ou senha incorretos.");
             }
-        }while(op != 0);
+        } while (op != 0);
+
         return null;
-        }
-
     }
-
+}

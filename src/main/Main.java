@@ -1,68 +1,72 @@
 package main;
-import model.Usuario;
-import service.Biblioteca;
+
 import java.util.Scanner;
 import model.Livro;
-import service.usuarioService;
-import main.menuUsuario;
+import model.Usuario;
+import service.Biblioteca;
+import service.UsuarioService;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
-        usuarioService usuarioService = new usuarioService();
-        usuarioService usuarioLogado = menuUsuario.iniciar(sc, usuarioService);
+        UsuarioService usuarioService = new UsuarioService();
+        Usuario usuarioLogado = MenuUsuario.iniciar(sc, usuarioService);
 
-        if(usuarioLogado != null){
+        if (usuarioLogado != null) {
             menuBiblioteca(sc, biblioteca, usuarioLogado);
         }
 
-}
-    public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca){
+        sc.close();
+    }
+
+    public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca, Usuario usuarioLogado) {
         int op;
 
-        do{
-            System.out.println("1 - Adicionar Livro");
+        do {
+            System.out.println("1 - Adicionar livro");
             System.out.println("2 - Listar livros");
             System.out.println("3 - Emprestar livro");
             System.out.println("4 - Devolver livro");
-            System.out.println("5 - Listar emprestimo");
+            System.out.println("5 - Listar emprestimos");
             System.out.println("0 - Logout");
 
             op = sc.nextInt();
             sc.nextLine();
-            if(op==1){
-                System.out.println("Título: ");
+
+            if (op == 1) {
+                System.out.println("Titulo:");
                 String titulo = sc.nextLine();
 
-                System.out.println("Autor: ");
+                System.out.println("Autor:");
                 String autor = sc.nextLine();
 
-                Livro livro = new Livro(titulo,autor);
-
-                biblioteca.adicionarLivro(livro);
+                biblioteca.adicionarLivro(new Livro(titulo, autor));
             }
-            if(op==2){
+
+            if (op == 2) {
                 biblioteca.listarLivros();
             }
-            if(op==3){
-                System.out.println("ID: ");
+
+            if (op == 3) {
+                System.out.println("ID:");
                 int id = sc.nextInt();
                 sc.nextLine();
 
-                Usuario usuario = new Usuario(" Zig ", "123");
-                biblioteca.emprestarLivro(id, usuario);
+                biblioteca.emprestarLivro(id, usuarioLogado);
             }
-            if(op==4){
-                System.out.println("ID: ");
+
+            if (op == 4) {
+                System.out.println("ID:");
                 int id = sc.nextInt();
                 sc.nextLine();
 
                 biblioteca.devolverLivro(id);
             }
-            if(op==5){
+
+            if (op == 5) {
                 biblioteca.listarEmprestimos();
             }
-        }while(op != 0);
+        } while (op != 0);
     }
 }

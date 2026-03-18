@@ -1,24 +1,27 @@
 package model;
+
 import java.time.LocalDate;
 
 public class Emprestimo {
-    private Usuario usuario;
-    private Livro livro;
-    private LocalDate dataEmprestimo;
+    private final Usuario usuario;
+    private final Livro livro;
+    private final LocalDate dataEmprestimo;
 
-    public Emprestimo(Usuario usuario, Livro livro){
+    public Emprestimo(Usuario usuario, Livro livro) {
         this.usuario = usuario;
-        this.livro=livro;
-        this.dataEmprestimo= LocalDate.now();
-
+        this.livro = livro;
+        this.dataEmprestimo = LocalDate.now();
     }
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return usuario;
     }
-    public Livro getLivro(){
+
+    public Livro getLivro() {
         return livro;
     }
-    public LocalDate getDataEmprestimo(){
+
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 }
