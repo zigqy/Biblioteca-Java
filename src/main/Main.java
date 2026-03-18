@@ -4,14 +4,19 @@ import service.Biblioteca;
 import java.util.Scanner;
 import model.Livro;
 import service.usuarioService;
+import main.menuUsuario;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
+        usuarioService usuarioService = new usuarioService();
+        usuarioService usuarioLogado = menuUsuario.iniciar(sc, usuarioService);
 
-        menuBiblioteca(sc, biblioteca);
-        System.out.println("cinto");
+        if(usuarioLogado != null){
+            menuBiblioteca(sc, biblioteca, usuarioLogado);
+        }
+
 }
     public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca){
         int op;

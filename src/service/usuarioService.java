@@ -11,12 +11,12 @@ public class usuarioService {
 
         System.out.println("Usuário cadastrado!");
     }
-    public boolean login(String nome, String senha){
+    public Usuario login(String nome, String senha){
         for(Usuario u : usuarios){
             if(u.getName().equals(nome) && u.verificarSenha(senha)){
-                return true;
+                return u;
             }
         }
-        return false;
+        return null;
     }
 }
