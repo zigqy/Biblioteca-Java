@@ -11,7 +11,7 @@ public class Main {
         Biblioteca biblioteca = new Biblioteca();
 
         menuBiblioteca(sc, biblioteca);
-
+        System.out.println("cinto");
 }
     public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca){
         int op;
