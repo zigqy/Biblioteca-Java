@@ -13,7 +13,6 @@ public class Main {
         UsuarioService usuarioService = new UsuarioService();
         Usuario usuarioLogado = MenuUsuario.iniciar(sc, usuarioService);
 
-<<<<<<< HEAD
         if (usuarioLogado != null) {
             menuBiblioteca(sc, biblioteca, usuarioLogado);
         }
@@ -22,26 +21,6 @@ public class Main {
     }
 
     public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca, Usuario usuarioLogado) {
-=======
-        Usuario usuarioLogado = null;
-
-        System.out.println("===LOGIN====");
-
-        System.out.println("Nome: ");
-        String nome = sc.nextLine();
-
-        System.out.println("Senha: ");
-        String senha = sc.nextLine();
-
-        usuarioLogado = new Usuario(nome,senha);
-
-        System.out.println("Login realizado!\n");
-
-        menuBiblioteca(sc, biblioteca, usuarioLogado);
-
-}
-    public static void menuBiblioteca(Scanner sc, Biblioteca biblioteca, Usuario usuarioLogado){
->>>>>>> 0fad0c040dfe80f50ce70f6dbeee339fd3f0bff5
         int op;
 
         do {
